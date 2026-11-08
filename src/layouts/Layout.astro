@@ -1,55 +1,87 @@
 ---
-import "@fontsource-variable/onest";
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
-import { ViewTransitions } from "astro:transitions";
+import "@fontsource-variable/onest"
+import "@/styles/global.css"
+import Header from "@/components/Header.astro"
+import Footer from "@/components/Footer.astro"
+import { ClientRouter } from "astro:transitions"
+import { SITE } from "@/data/site"
 
 interface Props {
-  title: string;
-  description: string;
-  image?: string;
-  canonical?: string;
+  title: string
+  description: string
+  image?: string
+  canonical?: string
 }
+
+const siteUrl = Astro.site ?? new URL(Astro.url.origin)
 
 const {
   description,
   title,
-  image = "/porfolio.webp",
-  canonical = Astro.url.href,
-} = Astro.props;
+  image = SITE.ogImage,
+  canonical = new URL(Astro.url.pathname, siteUrl).href,
+} = Astro.props
 
-const siteUrl = "https://porfolio.dev";
-const ogImage = new URL(image, siteUrl).toString();
+const ogImage = new URL(image, siteUrl).toString()
 
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
-  name: "Miguel Ángel Durán",
-  url: siteUrl,
-  sameAs: [
-    "https://linkedin.com/in/midudev",
-    "https://github.com/midudev",
-    "https://twitter.com/midudev",
-  ],
-  jobTitle: "Ingeniero de Software y Creador de Contenido",
+  name: SITE.fullName,
+  url: siteUrl.href,
+  email: `mailto:${SITE.email}`,
+  image: new URL(SITE.avatar, siteUrl).toString(),
+  sameAs: [SITE.linkedin, SITE.github],
+  jobTitle: SITE.role,
   worksFor: {
     "@type": "Organization",
-    name: "Freelance",
+    name: SITE.company,
   },
-};
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "San José",
+    addressCountry: "CR",
+  },
+  knowsAbout: [
+    "API integration",
+    "REST",
+    "SOAP",
+    "Microservices",
+    "OAuth",
+    "JWT",
+    "Model Context Protocol",
+    "Python",
+    "TypeScript",
+    "Go",
+    "Docker",
+  ],
+}
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
-    <meta name="author" content="Miguel Ángel Durán" />
+    <meta name="author" content={SITE.fullName} />
     <meta name="generator" content={Astro.generator} />
+
+    <!-- Apply the saved theme before first paint to avoid a light/dark flash -->
+    <script is:inline>
+      ;(function () {
+        const pref = localStorage.getItem("theme") ?? "system"
+        const isDark =
+          pref === "dark" ||
+          (pref === "system" &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches)
+        document.documentElement.classList.toggle("dark", isDark)
+      })()
+    </script>
 
     <!-- Canonical -->
     <link rel="canonical" href={canonical} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
@@ -59,13 +91,11 @@ const jsonLd = {
     <meta property="og:image" content={ogImage} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:locale" content="es_ES" />
-    <meta property="og:site_name" content="midudev · Porfolio" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:site_name" content={`${SITE.name} · Portfolio`} />
 
     <!-- Twitter / X -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@midudev" />
-    <meta name="twitter:creator" content="@midudev" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
@@ -79,7 +109,7 @@ const jsonLd = {
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{title}</title>
     <meta name="darkreader-lock" />
-    <ViewTransitions />
+    <ClientRouter />
   </head>
 
   <body class="relative text-black dark:text-white">
@@ -101,7 +131,11 @@ const jsonLd = {
     <Footer />
     <style is:global>
       :root {
-        color-scheme: light dark;
+        color-scheme: light;
+      }
+
+      :root.dark {
+        color-scheme: dark;
       }
 
       html {
@@ -120,52 +154,6 @@ const jsonLd = {
       @media (prefers-reduced-motion: reduce) {
         html {
           scroll-behavior: auto;
-        }
-      }
-
-      @media (prefers-color-scheme: dark) {
-        body {
-          color: rgba(255, 255, 255, 0.9);
-        }
-      }
-
-      @keyframes blur {
-        to {
-          backdrop-filter: blur(20px);
-          border-width: 1px;
-          border-color: rgba(0, 0, 0);
-          padding: 0.25rem 0.75rem;
-          display: flex;
-          flex-direction: row;
-          align-items: center;
-          background-color: rgb(229, 229, 229);
-          border-radius: 9999px;
-        }
-      }
-
-      @media (prefers-color-scheme: dark) {
-        @keyframes blur {
-          from {
-            border: 0px;
-          }
-          to {
-            box-shadow:
-              0px 5px 50px -5px rgba(0, 0, 0, 0.1),
-              0px 0px 0 1px rgba(0, 0, 0, 0.3);
-            background: rgba(0, 0, 0, 0.3);
-            backdrop-filter: blur(20px);
-            border-width: 1px;
-            border-color: rgba(0, 0, 0);
-            padding-left: 0.75rem;
-            padding-right: 0.75rem;
-            padding-top: 0.25rem;
-            padding-bottom: 0.25rem;
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            background-color: rgba(0, 0, 0, 0.3);
-            border-radius: 9999px;
-          }
         }
       }
 

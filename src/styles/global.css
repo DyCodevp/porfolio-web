@@ -1,0 +1,20 @@
+@import "tailwindcss";
+
+/* The theme toggle sets `.dark` on <html> (Tailwind v3 `darkMode: "class"`) */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Keep Tailwind v3 defaults for borders/rings used across the template */
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+}

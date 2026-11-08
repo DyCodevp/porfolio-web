@@ -1,0 +1,17 @@
+---
+import TechIcon from "@/components/TechIcon.astro"
+import { TECH, type TechKey } from "@/data/tech"
+
+interface Props {
+  tech: TechKey
+}
+
+const tech = TECH[Astro.props.tech]
+---
+
+<span
+  class="inline-flex items-center gap-x-1.5 rounded-full border border-gray-300 bg-gray-100 px-2.5 py-1 text-xs font-medium text-gray-800 dark:border-gray-700 dark:bg-gray-800/80 dark:text-gray-100"
+>
+  {"icon" in tech && <TechIcon slug={tech.icon} class="size-3.5" />}
+  {tech.name}
+</span>

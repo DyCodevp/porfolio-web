@@ -1,0 +1,15 @@
+export const SITE = {
+  name: "Dylan Chaves",
+  fullName: "Dylan Chaves Potoy",
+  shortName: "Dylan",
+  role: "Integration Engineer",
+  headline: "Integration Engineer | APIs, Microservices & API Security",
+  location: "San José, Costa Rica",
+  email: "dylanpotoy@gmail.com",
+  github: "https://github.com/DyCodevp",
+  linkedin: "https://www.linkedin.com/in/dylan-chaves-potoy",
+  credly: "https://www.credly.com/users/dylan-potoy/badges",
+  company: "Exceltec Costa Rica",
+  avatar: "/avatar.webp",
+  ogImage: "/og.jpg",
+} as const

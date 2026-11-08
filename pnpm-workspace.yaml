@@ -1,0 +1,9 @@
+allowBuilds:
+  esbuild: true
+  sharp: true
+  workerd: true
+
+overrides:
+  # @napi-rs/wasm-runtime accepts @emnapi/runtime 2.x betas as a peer, which breaks
+  # @astrojs/check (astro2tsx) when paired with @emnapi/core 1.x. Pin to 1.x.
+  "@emnapi/runtime": "^1.11.3"

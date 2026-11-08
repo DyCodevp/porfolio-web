@@ -1,0 +1,157 @@
+---
+import ExternalLink from "@/components/icons/ExternalLink.astro"
+import TechIcon from "@/components/TechIcon.astro"
+import { SITE } from "@/data/site"
+
+interface Certification {
+  title: string
+  org: string
+  year: string
+  url: string
+  badge?: string
+}
+
+const EDUCATION = [
+  {
+    title: "Bachelor's degree in Systems Engineering",
+    org: "Universidad Politécnica Internacional (UPI)",
+    date: "2024 – ongoing",
+  },
+  {
+    title: "Technician in Network & Operating Systems Configuration and Support",
+    org: "Santa Ana Technical Professional College",
+    date: "2021 – 2023",
+  },
+]
+
+const CREDLY_BADGE = "https://www.credly.com/badges/"
+
+const CERTIFICATIONS: Certification[] = [
+  {
+    title: "Associate Data Engineer",
+    org: "DataCamp",
+    year: "2026",
+    url: "https://www.datacamp.com/certificate/DEA0011893392480",
+  },
+  {
+    title: "Python Essentials 2",
+    org: "Cisco",
+    year: "2024",
+    url: `${CREDLY_BADGE}9f69e815-1c5c-4187-bf8c-8c84aa6cd1c9`,
+    badge: "/badges/python-essentials-2.webp",
+  },
+  {
+    title: "CCNA: Enterprise Networking, Security, and Automation",
+    org: "Cisco",
+    year: "2022",
+    url: `${CREDLY_BADGE}127572fa-9616-4a0f-b0ab-6df9be5b685b`,
+    badge: "/badges/ccna-ensa.webp",
+  },
+  {
+    title: "Cybersecurity Essentials",
+    org: "Cisco",
+    year: "2022",
+    url: `${CREDLY_BADGE}e95b59c7-d6f1-40be-a158-ac4fae701705`,
+    badge: "/badges/cybersecurity-essentials.webp",
+  },
+  {
+    title: "CCNA: Switching, Routing, and Wireless Essentials",
+    org: "Cisco",
+    year: "2022",
+    url: `${CREDLY_BADGE}1cd3e520-45b4-445c-af79-1785f67b250b`,
+    badge: "/badges/ccna-srwe.webp",
+  },
+  {
+    title: "CCNA: Introduction to Networks",
+    org: "Cisco",
+    year: "2022",
+    url: `${CREDLY_BADGE}6115bcf7-a75f-464a-8080-00512929e145`,
+    badge: "/badges/ccna-itn.webp",
+  },
+]
+
+const LANGUAGES = [
+  { name: "Spanish", level: "Native" },
+  { name: "English", level: "B2+" },
+]
+---
+
+<div class="grid gap-10 md:grid-cols-2 text-gray-700 dark:text-gray-300">
+  <div class="flex flex-col gap-8">
+    <div>
+      <h3 class="mb-4 text-sm font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400">
+        Education
+      </h3>
+      <ul class="flex flex-col gap-4">
+        {
+          EDUCATION.map(({ title, org, date }) => (
+            <li>
+              <p class="font-semibold text-gray-800 dark:text-white text-pretty">{title}</p>
+              <p class="text-sm">{org}</p>
+              <p class="text-sm text-gray-500 dark:text-gray-400">{date}</p>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+
+    <div>
+      <h3 class="mb-4 text-sm font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400">
+        Languages
+      </h3>
+      <ul class="flex flex-wrap gap-3">
+        {
+          LANGUAGES.map(({ name, level }) => (
+            <li class="rounded-full border border-gray-300 px-3 py-1 text-sm dark:border-gray-700">
+              {name} <span class="text-yellow-600 dark:text-yellow-300">· {level}</span>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+
+  <div>
+    <h3 class="mb-4 text-sm font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400">
+      Certifications
+    </h3>
+    <ul class="flex flex-col gap-1">
+      {
+        CERTIFICATIONS.map(({ title, org, year, url, badge }) => (
+          <li>
+            <a
+              href={url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="group flex items-center gap-4 rounded-xl p-2 -mx-2 transition hover:bg-gray-900/5 dark:hover:bg-white/5"
+            >
+              {badge ? (
+                <img src={badge} alt="" width="48" height="48" loading="lazy" class="size-12 shrink-0" />
+              ) : (
+                <span class="grid size-12 shrink-0 place-items-center rounded-full bg-gray-900 text-[#03EF62]" aria-hidden="true">
+                  <TechIcon slug="datacamp" class="size-6" />
+                </span>
+              )}
+              <div class="flex-1">
+                <p class="font-medium text-gray-800 dark:text-white text-pretty group-hover:text-yellow-600 dark:group-hover:text-yellow-300">
+                  {title}
+                </p>
+                <p class="text-sm">{org} · <span class="font-mono">{year}</span></p>
+              </div>
+              <ExternalLink class="size-4 shrink-0 opacity-0 transition group-hover:opacity-70" aria-hidden="true" />
+              <span class="sr-only">(verify credential, opens in a new tab)</span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+    <a
+      href={SITE.credly}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-yellow-600 hover:underline dark:text-yellow-300"
+    >
+      View all badges on Credly <ExternalLink class="size-3.5" aria-hidden="true" />
+    </a>
+  </div>
+</div>

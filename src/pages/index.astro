@@ -2,49 +2,69 @@
 import Layout from "@/layouts/Layout.astro"
 
 import AboutMe from "@/components/AboutMe.astro"
-import Briefcase from "@/components/icons/Briefcase.astro"
-import CodeDots from "@/components/icons/CodeDots.astro"
+import Education from "@/components/Education.astro"
 import Experience from "@/components/Experience.astro"
-import UserHeart from "@/components/icons/UserHeart.astro"
+import Hero from "@/components/Hero.astro"
 import Projects from "@/components/Projects.astro"
 import SectionContainer from "@/components/SectionContainer.astro"
-import Hero from "@/components/Hero.astro"
+import Skills from "@/components/Skills.astro"
 import TitleSection from "@/components/TitleSection.astro"
+import Briefcase from "@/components/icons/Briefcase.astro"
+import Code from "@/components/icons/Code.astro"
+import CodeDots from "@/components/icons/CodeDots.astro"
+import ProfileCheck from "@/components/icons/ProfileCheck.astro"
+import UserHeart from "@/components/icons/UserHeart.astro"
+import { SITE } from "@/data/site"
 ---
 
 <Layout
-  title="Porfolio de midudev - Desarrollador y Programador Web con 15 años de experiencia"
-  description="Contrata a midudev para crear tu aplicación web o móvil. Desarrollador Web y Creador de Contenido. Especializado en crear aplicaciones únicas."
+  title={`${SITE.name} – ${SITE.headline}`}
+  description="Portfolio of Dylan Chaves, Integration Engineer in Costa Rica with 3+ years building secure REST/SOAP APIs, microservices, OAuth/JWT services and MCP integrations for AI agents with Python, TypeScript and Go."
 >
   <main class="px-4">
     <SectionContainer class="py-16 md:py-36">
-      <Hero>
-    </Hero>
+      <Hero />
     </SectionContainer>
     <div class="space-y-24">
-    <SectionContainer id="experiencia">
-      <TitleSection>
-        <Briefcase class="size-8" />
-        Experiencia laboral
-      </TitleSection>
-      <Experience />
-    </SectionContainer>
+      <SectionContainer id="experience">
+        <TitleSection>
+          <Briefcase class="size-8" />
+          Work experience
+        </TitleSection>
+        <Experience />
+      </SectionContainer>
 
-    <SectionContainer id="proyectos">
-      <TitleSection>
-        <CodeDots class="size-7" />
-        Proyectos
-      </TitleSection>
-      <Projects />
-    </SectionContainer>
+      <SectionContainer id="projects">
+        <TitleSection>
+          <CodeDots class="size-7" />
+          Projects
+        </TitleSection>
+        <Projects />
+      </SectionContainer>
 
-    <SectionContainer id="sobre-mi">
-      <TitleSection>
-        <UserHeart class="size-8" />
-        Sobre mí
-      </TitleSection>
-      <AboutMe />
-    </SectionContainer>
-  </div>
+      <SectionContainer id="skills">
+        <TitleSection>
+          <Code class="size-8" />
+          Skills
+        </TitleSection>
+        <Skills />
+      </SectionContainer>
+
+      <SectionContainer id="education">
+        <TitleSection>
+          <ProfileCheck class="size-8" />
+          Education & certifications
+        </TitleSection>
+        <Education />
+      </SectionContainer>
+
+      <SectionContainer id="about">
+        <TitleSection>
+          <UserHeart class="size-8" />
+          About me
+        </TitleSection>
+        <AboutMe />
+      </SectionContainer>
+    </div>
   </main>
 </Layout>

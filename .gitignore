@@ -3,9 +3,14 @@ dist/
 
 # generated types
 .astro/
+worker-configuration.d.ts
 
 # dependencies
 node_modules/
+
+# cloudflare / wrangler
+.wrangler/
+.dev.vars*
 
 # logs
 npm-debug.log*
@@ -22,4 +27,6 @@ pnpm-debug.log*
 bun.*
 
 package-lock.json
-pnpm-lock.yaml
+
+# personal CV source (contains private contact data)
+Dylan-2026cven.md

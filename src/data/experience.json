@@ -1,22 +1,36 @@
 [
   {
-    "date": "Septiembre 2022 - Actualidad",
-    "title": "Creador de Contenido",
-    "company": "Twitch",
-    "description": "Divulgo sobre programación y desarrollo web en diferentes plataformas. Galardonado como mejor creador de contenido de habla no-inglesa en 2022 y mejor comunidad en 2023 por GitHub.",
-    "link": "https://twitch.tv/midudev",
+    "date": "Jan 2025 – Present",
+    "title": "Integration Engineer",
+    "company": "Exceltec Costa Rica",
+    "description": "Design, develop and maintain backend services, REST/SOAP APIs and microservices with Python, TypeScript and Go. Build authentication and encryption services (OAuth, JWT), integrate enterprise platforms like Microsoft Teams and SoftExpert SE Suite, and develop MCP servers and RAG services (FastAPI, LlamaIndex, PostgreSQL + pgvector). Ship with Docker, Jenkins and GitHub to Linux servers, Azure, Cloudflare and Vercel.",
+    "highlights": [
+      "Led the Microsoft Teams integration for IsaStudio, enabling AI agents to interact with enterprise workflows.",
+      "Delivered the MCP server that connects AI agents with SoftExpert SE Suite.",
+      "Built shared authentication and encryption services reused by multiple applications, standardizing API security."
+    ],
+    "link": "https://www.exceltecgroup.com",
     "current": true
   },
   {
-    "date": "Junio 2016 - Septiembre 2022",
-    "title": "Lead Frontend Architect",
-    "company": "Adevinta Spain",
-    "description": "Parte del equipo Enablers Frontend en Adevinta Spain. Nuestra misión era conseguir que todos los verticales (Fotocasa, MilAnuncios, Habitaclia, Coches.net, Infojobs) convergieran tecnológicamente, con una arquitectura moderna, flexible y optimizada, fomentando buenas prácticas y dando talleres para compartir conocimiento."
+    "date": "Feb 2024 – Dec 2024",
+    "title": "Application Consultant & Developer",
+    "company": "Exceltec Costa Rica",
+    "description": "Turned business requirements from client meetings into technical integration solutions. Integrated third-party applications with the Odoo ERP (JSON/XML data exchange, process automation), developed custom Odoo modules in Python, JavaScript and XML, wrote functional and technical documentation, and built SQL reports to validate systems.",
+    "highlights": [
+      "Mentored coworkers on Odoo development best practices."
+    ]
   },
   {
-    "date": "Marzo 2011 - Mayo 2016",
-    "title": "Senior Full-Stack Developer",
-    "company": "Hubii",
-    "description": "Start-up sobre localización de noticias y servicios de información. Desarrollé el website con Jade, BEM, Stylus y CoffeeScript; app de Firefox OS offline-first a 60fps; app de Smart TV con accesibilidad por mando a distancia y push notifications; y una API de Insights con NodeJS, Swagger y MongoDB para parsear contenido web con Big Data."
+    "date": "Oct 2023 – Jan 2024",
+    "title": "Application Support Analyst",
+    "company": "Exceltec Costa Rica",
+    "description": "Tier 1/Tier 2 support for enterprise applications in production. Investigated API failures, database issues and integration problems across systems, analyzed network traffic with Wireshark and tcpdump, deployed applications on Windows and Linux servers, and worked with development teams on root-cause fixes and incident documentation."
+  },
+  {
+    "date": "Sep 2022 – Oct 2022",
+    "title": "IT Support Engineer (Intern)",
+    "company": "Qualfon",
+    "description": "Configured and managed network infrastructure, maintained IT systems and administered users with Windows Active Directory."
   }
 ]

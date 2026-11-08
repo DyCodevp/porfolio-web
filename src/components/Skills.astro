@@ -1,0 +1,53 @@
+---
+import TechTag from "@/components/TechTag.astro"
+import type { TechKey } from "@/data/tech"
+
+const GROUPS: { title: string; items: TechKey[] }[] = [
+  {
+    title: "APIs & integration",
+    items: ["REST", "SOAP", "JSON", "XML", "MICROSERVICES", "FASTAPI", "NODE", "MCP"],
+  },
+  {
+    title: "API security",
+    items: ["OAUTH", "JWT", "ENCRYPTION", "SSH", "ACL"],
+  },
+  {
+    title: "Languages",
+    items: ["PYTHON", "TYPESCRIPT", "JAVASCRIPT", "GO", "SQL"],
+  },
+  {
+    title: "DevOps & cloud",
+    items: ["DOCKER", "KUBERNETES", "JENKINS", "GIT", "GITHUB", "GITLAB", "LINUX", "AZURE", "CLOUDFLARE", "VERCEL"],
+  },
+  {
+    title: "Data",
+    items: ["POSTGRESQL", "PGVECTOR", "SQLITE"],
+  },
+  {
+    title: "Networking & monitoring",
+    items: ["TCPIP", "NAT", "DHCP", "LANWAN", "WIRESHARK", "TCPDUMP"],
+  },
+]
+---
+
+<div class="grid gap-6 sm:grid-cols-2">
+  {
+    GROUPS.map(({ title, items }) => (
+      <div
+        aria-label={title}
+        class="rounded-2xl border border-gray-200 bg-white/50 p-5 dark:border-white/10 dark:bg-white/[0.03]"
+      >
+        <h3 class="mb-3 text-sm font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400">
+          {title}
+        </h3>
+        <ul class="flex flex-wrap gap-2">
+          {items.map((item) => (
+            <li>
+              <TechTag tech={item} />
+            </li>
+          ))}
+        </ul>
+      </div>
+    ))
+  }
+</div>

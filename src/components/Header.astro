@@ -1,27 +1,13 @@
 ---
 import ThemeToggle from "./ThemeToggle.astro"
+import { SITE } from "@/data/site"
 
 const navItems = [
-  {
-    title: "Experiencia",
-    label: "experiencia",
-    url: "/#experiencia",
-  },
-  {
-    title: "Proyectos",
-    label: "proyectos",
-    url: "/#proyectos",
-  },
-  {
-    title: "Sobre mí",
-    label: "sobre-mi",
-    url: "/#sobre-mi",
-  },
-  {
-    title: "Contacto",
-    label: "contacto",
-    url: "mailto:miduga@gmail.com",
-  },
+  { title: "Experience", label: "experience", url: "/#experience" },
+  { title: "Projects", label: "projects", url: "/#projects" },
+  { title: "Skills", label: "skills", url: "/#skills" },
+  { title: "About", label: "about", url: "/#about" },
+  { title: "Contact", label: "contact", url: `mailto:${SITE.email}` },
 ]
 ---
 
@@ -92,26 +78,39 @@ const navItems = [
 </script>
 
 <style>
+  @reference "../styles/global.css";
+
   .header-nav {
     animation: nav-appear 1s linear both;
     animation-timeline: scroll();
     animation-range: 0 100px;
+    --nav-bg: rgb(255 255 255 / 0.6);
+    --nav-border: rgb(229 231 235 / 0.2);
   }
 
-  .header-nav {
-    @apply dark:bg-gray-900/80 bg-white/60;
+  :global(.dark) .header-nav {
+    --nav-bg: rgb(17 24 39 / 0.8);
+    --nav-border: rgb(255 255 255 / 0.05);
   }
 
-  .nav-link.text-yellow-500 {
+  .nav-link:global(.text-yellow-500) {
     @apply font-semibold;
   }
 
   @keyframes nav-appear {
-    0% {
-      @apply dark:bg-gray-900/0 bg-white/0 border-transparent shadow-none;
+    from {
+      background-color: transparent;
+      border-color: transparent;
+      box-shadow: none;
     }
     to {
-      @apply shadow-lg ring-1 backdrop-blur-md ring-white/10 dark:ring-white/5 border-gray-200/20 dark:border-white/5;
+      background-color: var(--nav-bg);
+      border-color: var(--nav-border);
+      box-shadow:
+        0 10px 15px -3px rgb(0 0 0 / 0.1),
+        0 4px 6px -4px rgb(0 0 0 / 0.1),
+        0 0 0 1px rgb(255 255 255 / 0.08);
+      backdrop-filter: blur(12px);
     }
   }
 </style>

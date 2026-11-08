@@ -1,0 +1,22 @@
+---
+import { TECH_ICONS, type TechIconSlug } from "@/data/tech-icons"
+
+interface Props {
+  slug: TechIconSlug
+  class?: string
+}
+
+const { slug, class: className } = Astro.props
+const icon = TECH_ICONS[slug]
+---
+
+<svg
+  class={className}
+  role="img"
+  viewBox="0 0 24 24"
+  fill="currentColor"
+  xmlns="http://www.w3.org/2000/svg"
+  aria-hidden="true"
+>
+  <path d={icon.path}></path>
+</svg>

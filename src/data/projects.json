@@ -1,17 +1,98 @@
 [
   {
-    "title": "SVGL - A beautiful library with SVG logos",
-    "description": "Biblioteca de logos SVG de las marcas más populares. +10k visitas al mes. +2K svgs descargados. Creado desde cero con Next.js, React y Tailwind CSS.",
-    "link": "https://svgl.vercel.app/",
-    "github": "https://github.com/pheralb/svgl",
-    "image": "/projects/svgl.webp",
-    "tags": ["NEXT", "TAILWIND"]
+    "title": "MCP Server for SoftExpert SE Suite",
+    "kind": "Case study · Exceltec",
+    "description": "Model Context Protocol server written in Go that connects AI agents with SoftExpert SE Suite, exposing the platform's enterprise processes through a secure API layer so agents can query and act on them safely.",
+    "cover": "go",
+    "tags": [
+      "GO",
+      "MCP",
+      "SOFTEXPERT",
+      "REST",
+      "OAUTH",
+      "DOCKER"
+    ]
   },
   {
-    "title": "AdventJS - Retos de programación con JavaScript y TypeScript",
-    "description": "Plataforma gratuita con retos de programación. Más de 1 millón de visitas en un mes. +50K retos completados. Creada desde cero con Next.js, React y Tailwind CSS.",
-    "link": "https://adventjs.dev",
-    "image": "/projects/adventjs.webp",
-    "tags": ["NEXT", "TAILWIND"]
+    "title": "Microsoft Teams integration for IsaStudio",
+    "kind": "Case study · Exceltec",
+    "description": "Led the Microsoft Teams integration for IsaStudio, enabling its AI agents to interact with enterprise workflows directly from Teams — the chat tool users already work in every day.",
+    "cover": "nodedotjs",
+    "tags": [
+      "TEAMS",
+      "TYPESCRIPT",
+      "REST",
+      "MICROSERVICES"
+    ]
+  },
+  {
+    "title": "RAG document retrieval service",
+    "kind": "Case study · Exceltec",
+    "description": "Retrieval-Augmented Generation service that indexes enterprise documents and serves semantic search to AI agents. Built with FastAPI and LlamaIndex on PostgreSQL + pgvector, containerized with Docker.",
+    "cover": "postgresql",
+    "tags": [
+      "PYTHON",
+      "FASTAPI",
+      "LLAMAINDEX",
+      "POSTGRESQL",
+      "PGVECTOR",
+      "DOCKER"
+    ]
+  },
+  {
+    "title": "Shared authentication & encryption services",
+    "kind": "Case study · Exceltec",
+    "description": "Reusable microservices for OAuth/JWT authentication and data encryption consumed by multiple applications, standardizing how APIs are secured across the company.",
+    "cover": "jsonwebtokens",
+    "tags": [
+      "OAUTH",
+      "JWT",
+      "ENCRYPTION",
+      "MICROSERVICES",
+      "DOCKER"
+    ]
+  },
+  {
+    "title": "TikoTours – Costa Rica tour booking site",
+    "kind": "Web project · 2026",
+    "description": "Multilingual tourism website (Spanish, English and Chinese) for small-group guided tours across Costa Rica, built with Astro. Includes a CMS (Sveltia) to create and edit tours in every language without touching code, USD/CRC currency switching and tour search by destination, date and duration. Deployed on Cloudflare Workers.",
+    "link": "https://tikotours-web.byjia.workers.dev/en/",
+    "image": "/projects/tikotours.webp",
+    "tags": [
+      "ASTRO",
+      "SVELTIA",
+      "I18N",
+      "CLOUDFLARE"
+    ]
+  },
+  {
+    "title": "QDashboard – Invoice & revenue dashboard",
+    "kind": "Personal project",
+    "description": "Financial dashboard to manage customers and invoices and track collected vs. pending revenue. Built with Qwik City and Tailwind CSS on a Postgres database, deployed to the edge on Vercel.",
+    "link": "https://qdashboard-smoky.vercel.app",
+    "github": "https://github.com/DyCodevp/QDashboard",
+    "image": "/projects/qdashboard.webp",
+    "tags": [
+      "QWIK",
+      "TYPESCRIPT",
+      "TAILWIND",
+      "POSTGRESQL",
+      "VERCEL"
+    ]
+  },
+  {
+    "title": "Lytics – AI image analysis",
+    "kind": "Personal project",
+    "description": "React app that describes any image from its URL (BLIP image captioning) and generates images from text prompts by calling hosted AI models through the Clarifai REST API.",
+    "link": "https://azulytics.netlify.app",
+    "github": "https://github.com/DyCodevp/Lytics",
+    "cover": "react",
+    "tags": [
+      "REACT",
+      "JAVASCRIPT",
+      "VITE",
+      "CLARIFAI",
+      "REST"
+    ]
   }
 ]
