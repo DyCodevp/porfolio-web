@@ -35,6 +35,10 @@ pnpm preview   # build and serve with the Cloudflare runtime (wrangler dev)
 pnpm deploy    # build and deploy to Cloudflare Workers (requires `pnpm wrangler login`)
 ```
 
-## Credits
+## Credits & license
 
-Based on the [porfolio.dev](https://github.com/midudev/porfolio.dev) template by [midudev](https://github.com/midudev), licensed under [CC BY-NC 4.0](./LICENSE.md).
+Based on the [porfolio.dev](https://github.com/midudev/porfolio.dev) template by [midudev](https://github.com/midudev).
+
+- **Template code** is licensed under [CC BY-NC 4.0](./LICENSE.md).
+- **Personal content** — texts, photos, CV data, project screenshots and images in `public/` (`avatar.webp`, `og.jpg`, `projects/`) — © Dylan Chaves Potoy. All rights reserved. Please don't reuse it in your own portfolio; swap in your own data instead.
+- Certification badge images belong to their issuers (Cisco, via Credly). Tech icons come from [Simple Icons](https://simpleicons.org) (CC0).
